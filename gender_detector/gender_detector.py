@@ -13,12 +13,10 @@ import os
 import sys
 import io
 from .country import Country
-from .index import Index
 
 
 class GenderDetector:
     def __init__(self, country='us', unknown_value='unknown'):
-        self.index = Index(country)
         self.country = Country(country)
         self.unknown_value = unknown_value
         self.country_names = self._load_data()
