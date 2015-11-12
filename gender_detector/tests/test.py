@@ -8,7 +8,6 @@ import os.path
 
 from ..gender_detector import GenderDetector
 from gender_detector.country import Country
-from gender_detector.index import Index
 from gender_detector.binomy import Binomy
 
 
@@ -33,15 +32,6 @@ class TestCountry(unittest.TestCase):
         country = Country('ar')
         self.assertEqual(country._guesser_method().__name__, 'no_method')
 
-
-class TestIndex(unittest.TestCase):
-    def test_lazy_index(self):
-        # Generate index only when it's needed
-        index = Index()
-        self.assertEqual(len(index.indices), 0)
-        position = index('A')
-        self.assertNotEqual(len(index.indices), 0)
-        self.assertEqual(position, 87)
 
 class TestGenderDetector(unittest.TestCase):
     def test_format_name(self):
