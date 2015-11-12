@@ -52,9 +52,25 @@ class TestGenderDetector(unittest.TestCase):
                 'Marcos'
             )
 
-    def test_guessing(self):
+    def test_us_guessing(self):
+        # test scanning csv file for name
         detector = GenderDetector('us')
         self.assertEqual(detector.guess('Marcos'), 'male')
+        
+    def test_ar_guessing(self):
+        # test scanning csv file for name
+        detector = GenderDetector('ar')
+        self.assertEqual(detector.guess('Zulema'), 'female')
+        
+    def test_uk_guessing(self):
+        # test scanning csv file for name
+        detector = GenderDetector('uk')
+        self.assertEqual(detector.guess('Xara'), 'female')
+
+    def test_uy_guessing(self):
+        # test scanning csv file for name
+        detector = GenderDetector('uy')
+        self.assertEqual(detector.guess('Aaroon'), 'male')
 
 
 if __name__ == '__main__':
